@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Groupify - Pembuat Kelompok Otomatis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <nav class="navbar" aria-label="Navigasi utama">
+      <a class="brand" href="#">
+        <span class="brand-mark" aria-hidden="true">
+          <img class="brand-logo logo-light" src="assets/logo-light.png" alt="">
+          <img class="brand-logo logo-dark" src="assets/logo-dark.png" alt="">
+        </span>
+        Groupify
+      </a>
+
+      <button class="theme-toggle" type="button" id="themeToggle" aria-label="Ganti ke Dark Mode" title="Ganti tema">
+        <span class="theme-icon sun-icon" aria-hidden="true">
+          <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+            <path d="M12 4V2M12 22v-2M4 12H2M22 12h-2M5.64 5.64 4.22 4.22M19.78 19.78l-1.42-1.42M18.36 5.64l1.42-1.42M4.22 19.78l1.42-1.42M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="theme-icon moon-icon" aria-hidden="true">
+          <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+            <path d="M21 14.5A8.7 8.7 0 0 1 9.5 3a8.72 8.72 0 1 0 11.5 11.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </button>
+    </nav>
+
+    <header class="hero">
+      <section>
+        <h1>Buat Kelompok Otomatis dalam Sekali Klik</h1>
+        <p>Masukkan daftar nama, tentukan jumlah kelompok, lalu biarkan sistem membaginya secara acak dan merata.</p>
+        <a class="hero-cta" href="#groupMaker">Mulai Buat Kelompok</a>
+      </section>
+
+      <aside class="hero-panel" aria-label="Fitur Groupify">
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">1</span>
+          <div>
+            <strong>Generate otomatis</strong>
+            <span>Masukkan nama, tentukan jumlah kelompok, hasil langsung tersusun.</span>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">2</span>
+          <div>
+            <strong>Pembagian merata</strong>
+            <span>Sisa peserta dibagikan satu per satu dari kelompok awal.</span>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">3</span>
+          <div>
+            <strong>Shuffle ulang</strong>
+            <span>Acak ulang hasil kapan saja tanpa mengisi data dari awal.</span>
+          </div>
+        </div>
+      </aside>
+    </header>
+
+    <main>
+      <section class="app-card" id="groupMaker" aria-labelledby="formTitle">
+        <div class="form-grid">
+          <div class="field">
+            <label for="namesInput" id="formTitle">Daftar Nama Peserta</label>
+            <span class="field-hint">Tulis satu nama per baris. Baris kosong akan diabaikan.</span>
+            <textarea id="namesInput" placeholder="Contoh:&#10;Aulia&#10;Bima&#10;Citra&#10;Dimas"></textarea>
+          </div>
+
+          <div class="side-fields">
+            <div class="field">
+              <label for="groupCount">Jumlah Kelompok</label>
+              <input type="number" id="groupCount" min="1" placeholder="Contoh: 4">
+            </div>
+
+            <div class="counter-card">
+              <span>Total peserta</span>
+              <strong id="participantCount">0</strong>
+            </div>
+
+            <div class="actions">
+              <button class="btn btn-primary" type="button" id="generateBtn">Generate Kelompok</button>
+              <button class="btn" type="button" id="shuffleBtn">Shuffle Ulang</button>
+              <button class="btn btn-danger" type="button" id="resetBtn">Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert" id="errorMessage" role="alert"></div>
+      </section>
+
+      <section class="results-section" aria-labelledby="resultsTitle">
+        <div class="section-heading">
+          <div>
+            <h2 id="resultsTitle">Hasil Kelompok</h2>
+            <p>Setiap generate akan mengacak urutan peserta sebelum dibagi.</p>
+          </div>
+          <span class="result-summary" id="resultSummary">Belum ada hasil</span>
+        </div>
+
+        <div class="groups-grid" id="groupsGrid">
+          <div class="empty-state">Hasil kelompok akan muncul di sini setelah kamu menekan tombol Generate Kelompok.</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">Created by Maskuari.2026</footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
